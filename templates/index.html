@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block playbutton%}
+
+<html>
+
+<body>
+
+
+    <form action="/play" method="POST">
+        <div class="play-button-wrapper">
+            <button href="/game" class="play-button">
+
+                <h2 class="play-text">
+                    PLAY
+                </h2>
+                <i class="fa-solid fa-hand"></i>
+                <i class="fa-solid fa-hand-back-fist"></i>
+                <i class="fa-solid fa-hand-scissors"></i>
+            </button>
+            <br>
+            <p>Want to play a game of rock paper scissors? Just click the button above to play against the computer.</p>
+        </div>
+    </form>
+
+</body>
+
+</html>
+{% endblock %}

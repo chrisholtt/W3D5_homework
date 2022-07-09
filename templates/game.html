@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block result%}
+
+<html>
+
+
+
+<body>
+
+    <div class="select-wrapper">
+        <div class="select-box">
+            <form action="/play" method="POST">
+
+                <label for="user_name">Whats your name?</label>
+                <input type="text" id="user_name" name="user_name" value={{user_name}} required>
+                <br>
+                <br>
+
+                <label for="user_selection">Choose your move</label>
+                <select name="user_selection" id="user_selection">
+                    <option value="rock">Rock</option>
+                    <option value="paper">Paper</option>
+                    <option value="scissors">Scissors</option>
+                </select>
+                <br>
+                <br>
+
+                <button class="submit-form-btn">PLAY</button>
+            </form>
+        </div>
+    </div>
+
+    {% if user_choice %}
+    <div class="results-wrapper">
+        <div class="results-box">
+            <h3>{{user_name}} picked: {{ user_choice }}</h3>
+            <br>
+            <h3>Computer picked: {{ computer_choice }}</h3>
+            <br>
+
+            {% if result == 'You win' %}
+            <h1>😀 {{ result }} 😀</h1>
+
+            {% elif result == 'Computer wins' %}
+            <h1>🙁 {{ result }} 🙁</h1>
+
+            {% elif result == 'draw' %}
+            <h1>😐 {{ result }} 😐</h1>
+            {% endif %}
+        </div>
+
+
+        <div>
+            <img src="/static/hands.gif" alt="" id="hands-gif">
+        </div>
+    </div>
+
+    {% endif %}
+
+
+
+
+</body>
+
+</html>
+
+{% endblock%}
